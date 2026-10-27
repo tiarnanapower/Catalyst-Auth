@@ -1,22 +1,7 @@
 # Catalyst-Auth
 
-Password-protect a Next.js Catalyst storefront (with the Makeswift integration) before go-live, using HTTP Basic Auth in the Next.js proxy (middleware). The browser shows its own native sign-in dialog, so there is no login page to build. After a successful sign-in a cookie is set, so visitors are not prompted again for 7 days.
-
-It only turns on when you set environment variables, so it can ship in the codebase and stay off in production.
-
-## What's included
-
-| File | Purpose |
-| --- | --- |
-| `core/proxies/with-basic-auth.ts` | The basic auth proxy. New file: copy it into your project. |
-| `core/proxy.ts` | Copy of the Catalyst 1.13 proxy with `withBasicAuth` added. Copy it over yours only if yours is unmodified (Option A below), otherwise make the two edits (Option B). |
-| `core/.env.example` | The environment variables to add. |
-
-## Requirements
-
-- A Catalyst project using the Makeswift integration (tested on `@bigcommerce/catalyst-makeswift` 1.13.0, Next.js with `proxy.ts`).
-- `@makeswift/runtime` installed (already part of the Makeswift integration).
-- On older Catalyst versions the file is called `middleware.ts` instead of `proxy.ts`. The same change applies, but this has not been tested there.
+Password-protect a Next.js Catalyst storefront (with the Makeswift integration).
+It only turns on when you set environment variables
 
 ## Install
 
@@ -53,6 +38,21 @@ It only turns on when you set environment variables, so it can ship in the codeb
    The gate is **off** unless both `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD` are set.
 
 4. Commit, push and redeploy.
+
+## Some other stuff: whats included
+
+| File | Purpose |
+| --- | --- |
+| `core/proxies/with-basic-auth.ts` | The basic auth proxy. New file: copy it into your project. |
+| `core/proxy.ts` | Copy of the Catalyst 1.13 proxy with `withBasicAuth` added. Copy it over yours only if yours is unmodified (Option A below), otherwise make the two edits (Option B). |
+| `core/.env.example` | The environment variables to add. |
+
+## Requirements if you run into issues
+
+- A Catalyst project using the Makeswift integration (tested on `@bigcommerce/catalyst-makeswift` 1.13.0, Next.js with `proxy.ts`).
+- `@makeswift/runtime` installed (already part of the Makeswift integration).
+- On older Catalyst versions the file is called `middleware.ts` instead of `proxy.ts`. The same change applies, but this has not been tested there.
+
 
 ## Some notes
 
